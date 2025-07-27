@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
-     <header>
+    <header>
        <header class="header">
     <div class="header__logo">
       <a href="index.html" class="header__logo-link">
@@ -20,7 +20,7 @@
           <a href="index.html" class="header__nav-link">Inicio</a>
         </li>
         <li class="header__nav-item">
-          <a href="contacto.html" class="header__nav-link">Contacto</a>
+          <a href="./pages/contacto.html" class="header__nav-link">Contacto</a>
         </li>
       </ul>
     </nav>
@@ -29,12 +29,25 @@
         <img src="images/bag.svg" alt="carrito" class="header__carrito" />
       </a>
        <span class="menu-quantity">1</span>
-       <a href="#" class="clear">BORRAR</a>
+        <a href="#" class="clear">BORRAR</a>
     </div>
   </header>
       <main>
-    <section class="products">
-      <div class="products__container"></div>
+    <section>
+      <div class="single-product__container">
+        <div class="single-product">
+            <div class="single-product__image">
+                <img class="img" src="" alt="" />
+            </div>
+            <div class="single-product__content">
+            <h1></h1>
+            <h4></h4>
+            <p></p>
+          <span>Cantidad:</span>
+          <input class="quantity" type="number" min="1" step="1" value="1"/>
+            </div>
+        </div>
+      </div>
     </section>
     </main>
     <footer class="footer">
@@ -43,6 +56,6 @@
       <p class="footer__text">Todos los derechos reservados.</p>
     </div>
   </footer>
-    <script src="js/index.js"></script>
+    <script src="js/producto.js"></script>
   </body>
 </html>
