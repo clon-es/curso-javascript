@@ -1,19 +1,4 @@
-let misProductos = localStorage.getItem("misProductos");
-if (misProductos === null) {
-  misProductos = [];
-  localStorage.setItem("misProductos", JSON.stringify(misProductos));
-}
-setearCantidad(JSON.parse(misProductos));
-
-function leerProductosDesdeJSON() {
-  return fetch("data/productos.json").then((response) => {
-    if (!response.ok) {
-      throw new Error("Error al cargar el JSON");
-    }
-    return response.json();
-  });
-}
-
+/*Cargar productos*/
 leerProductosDesdeJSON().then((productos) => {
   const section = document.querySelector(".products__container");
   const arrayProductos = productos.map(
@@ -23,7 +8,7 @@ leerProductosDesdeJSON().then((productos) => {
 				<h2 class="card-title">${producto.nombre}</h2>
         <h3 class="card-price">$${producto.precio}</h3>
         <div class="card-content-btn">
-          <a class="btn" href="#">Agregar al carrito</a>
+          <a class="btn add-cart-btn" data-id="${producto.id}" href="#">Agregar al carrito</a>
           <a class="btn" href="./producto.html?id=${producto.id}"> Ver más</a>
         </div>
 			</div>
@@ -31,4 +16,19 @@ leerProductosDesdeJSON().then((productos) => {
   );
 
   section.innerHTML = arrayProductos.join("");
+
+  const botonesAgregar = document.querySelectorAll(".add-cart-btn");
+
+    botonesAgregar.forEach((boton) => {
+        boton.addEventListener("click", (e) => {
+            e.preventDefault(); 
+            const idProducto = boton.dataset.id;
+            AgregarAlCarrito(idProducto, 1);
+        });
+    });
+
 });
+
+
+
+/*Cargar productos*/

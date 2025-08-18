@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ecommerce</title>
+    <title>Ecommerce - Producto</title>
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
@@ -29,7 +29,7 @@
         <img src="images/bag.svg" alt="carrito" class="header__carrito" />
       </a>
        <span class="menu-quantity">1</span>
-        <a href="#" class="clear btn-clean"><img src="images/trash.svg"></a>
+        
     </div>
   </header>
       <main>
@@ -37,20 +37,17 @@
           <div class="cart-content">
            <a class="close-cart" href="#"> <img src="images/close.svg" alt="close"></a>
           <h3>Carrito</h3>
-          <div class="cart-product-list">
-
-           
-             
+          <div class="cart-product-list">    
           </div>
 
-            <div class="cart-product-price-sum">
-              <p>Total <span>$25000</span></p>
-            </div>
+          <div class="cart-product-price-sum">
+            <p>Total <span class="precioTotal">$0</span></p>
+          </div>
             
-            <div class="cart-content-button">
-            <a href="#" class="btn">Realizar compra</a>
-            <a href="#" class="btn btn-gray">Eliminar todo</a>
-           </div>
+          <div class="cart-content-button">
+            <a href="#" class="buy-btn btn">Realizar compra</a>
+            <a href="#" class="clear btn btn-gray">Eliminar todo</a>
+          </div>
           </div>
         </div>
         
@@ -63,7 +60,7 @@
             <div class="single-product__content">
             <h1></h1>
             <h4></h4>
-            <p></p>
+            <p class="descripcion"></p>
           <span>Cantidad:</span>
           <input class="quantity" type="number" min="1" step="1" value="1"/>
             </div>
@@ -79,6 +76,7 @@
   </footer>
     <script src="js/funciones.js"></script>
     <script src="js/producto.js"></script>
-  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   </body>
 </html>
