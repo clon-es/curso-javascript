@@ -25,3 +25,29 @@ function setearCantidad(misProductos) {
     menuQuantity.classList.remove("hide");
   }
 }
+
+const btnCart = document.querySelector(".btn-cart");
+const cart = document.querySelector(".cart");
+const closeCart = document.querySelector(".close-cart");
+
+btnCart.addEventListener("click", () => {
+  cart.classList.add("active");
+
+  const section = document.querySelector(".cart-product-list");
+  const arrayProductos = productos.map(
+    (producto) => `<div class="cart-product-item">
+              <div class="cart-product-img">
+                <img src="./images/${producto.imagenThumb}.png" alt="${producto.alt}">
+              </div>
+              <div class="cart-product-name">
+                <p>${producto.nombre}</p>
+              </div>
+            </div>`
+  );
+
+  section.innerHTML = arrayProductos.join("");
+});
+
+closeCart.addEventListener("click", () => {
+  cart.classList.remove("active");
+});
