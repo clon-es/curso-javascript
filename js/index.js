@@ -1,4 +1,3 @@
-/*Cargar productos*/
 leerProductosDesdeJSON().then((productos) => {
   const section = document.querySelector(".products__container");
   const arrayProductos = productos.map(
@@ -19,16 +18,11 @@ leerProductosDesdeJSON().then((productos) => {
 
   const botonesAgregar = document.querySelectorAll(".add-cart-btn");
 
-    botonesAgregar.forEach((boton) => {
-        boton.addEventListener("click", (e) => {
-            e.preventDefault(); 
-            const idProducto = boton.dataset.id;
-            AgregarAlCarrito(idProducto, 1);
-        });
+  botonesAgregar.forEach((boton) => {
+    boton.addEventListener("click", (e) => {
+      e.preventDefault();
+      const idProducto = boton.dataset.id;
+      AgregarAlCarrito(idProducto, 1);
     });
-
+  });
 });
-
-
-
-/*Cargar productos*/

@@ -76,7 +76,6 @@ function setearCantidad(misProductos) {
   }
 }
 
-/*Carrito*/
 function CargarCarrito() {
   const section = document.querySelector(".cart-product-list");
   let misProductos = JSON.parse(localStorage.getItem("misProductos")) || [];
@@ -98,7 +97,7 @@ function CargarCarrito() {
   section.innerHTML = arrayProductos.join("");
 
   let totales = obtenerCantidadTotal();
-  var spanTotal = document.querySelector(".precioTotal");
+  let spanTotal = document.querySelector(".precioTotal");
   spanTotal.innerHTML = `$ ${Number(totales.precioTotal)}`;
 }
 
@@ -119,6 +118,11 @@ const clear = document.querySelector(".clear");
 clear.addEventListener("click", function () {
   limpiarCarrito();
   CargarCarrito();
+
+  Swal.fire({
+    title: "¡Carrito vacío!",
+    icon: "info",
+  });
 });
 
 function limpiarCarrito() {
@@ -126,8 +130,19 @@ function limpiarCarrito() {
   localStorage.setItem("misProductos", JSON.stringify(misProductos));
   setearCantidad(misProductos);
 }
+
 const buyBtn = document.querySelector(".buy-btn");
 buyBtn.addEventListener("click", function () {
+  let misProductos = JSON.parse(localStorage.getItem("misProductos")) || [];
+  if (misProductos.length == 0) {
+    Swal.fire({
+      title: "Error",
+      text: "¡Carrito vacío!",
+      icon: "error",
+    });
+    return;
+  }
+
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: "btn btn-success",
@@ -162,7 +177,5 @@ buyBtn.addEventListener("click", function () {
       }
     });
 });
-
-/*Carrito*/
 
 setearCantidad(JSON.parse(misProductos));

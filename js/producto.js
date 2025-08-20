@@ -1,5 +1,3 @@
-
-/*Agregar producto*/
 const productoIndividual = document.querySelector(
   ".single-product .single-product__content"
 );
@@ -9,7 +7,7 @@ const productoId = params.get("id");
 let producto;
 leerProductosDesdeJSON().then((productos) => {
   producto = productos.find((p) => p.id === Number(productoId));
-    
+
   const img = document.querySelector(".img");
   img.src = `./images/${producto.imagen}.png`;
 
@@ -28,10 +26,8 @@ productoButton.className = "btn";
 productoButton.innerHTML = "Agregar producto";
 
 productoButton.onclick = function () {
-    const quantity = document.querySelector(".quantity").value;
-    AgregarAlCarrito(producto.id, quantity);
+  const quantity = document.querySelector(".quantity").value;
+  AgregarAlCarrito(producto.id, quantity);
 };
 
 productoIndividual.appendChild(productoButton);
-
-/*Agregar producto*/

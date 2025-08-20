@@ -315,3 +315,13 @@ body {
   max-width: 1280px;
   margin: 0 auto;
 }
+
+/*bliblioteca*/
+
+.swal2-actions {
+  gap: 10px;
+}
+
+button.swal2-deny {
+  background-color: var(--secondary);
+}
